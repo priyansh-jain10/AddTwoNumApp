@@ -2,6 +2,7 @@ package com.example.myfirstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +31,14 @@ public class MainActivity extends AppCompatActivity {
                 String b=num2.getText().toString();
                 int number2=Integer.parseInt(b);
                 int result=number2+number1;
-                resultText.setText(String.valueOf(result));
+//                resultText.setText(String.valueOf(result));
+                Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("result",String.valueOf(result));
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+
             }
         });
 
